@@ -20,7 +20,7 @@ class Weather():
         return f"{json_convert(url)['main']['temp_max']} Degrees Celcius"
 
 
-def json_convert(url):
+def json_convert(url: str) -> str:
     response = requests.request("GET", url)
     response_loaded = json.loads(response.text)
     return response_loaded
@@ -31,6 +31,6 @@ melbourne = Weather('melbourne', 'au')
 
 print("Welcome to Australian Weather CLI!!")
 
-location = input("Which city are you located in Australia?")
+city = input("Which city are you located in Australia?")
 
-print(melbourne.cur_temp())
+print(melbourne.max_temp())
