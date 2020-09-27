@@ -1,6 +1,8 @@
 import requests
 import json
 
+from typing import List
+
 
 class Weather():
     
@@ -23,7 +25,7 @@ def json_convert(url):
     response_loaded = json.loads(response.text)
     return response_loaded
 
-location = []
+location: List[str] = []
 
 melbourne = Weather('melbourne', 'au')
 
