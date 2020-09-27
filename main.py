@@ -7,7 +7,7 @@ from typing import List
 class Weather():
     
 
-    def __init__(self, location, state_code):
+    def __init__(self, location, state_code='au'):
         self.location = location
         self.state_code = state_code
 
@@ -27,10 +27,10 @@ def json_convert(url: str) -> str:
 
 location: List[str] = []
 
-melbourne = Weather('melbourne', 'au')
-
 print("Welcome to Australian Weather CLI!!")
 
 city = input("Which city are you located in Australia?")
 
-print(melbourne.max_temp())
+location.append(city)
+
+print(location[0].max_temp())
