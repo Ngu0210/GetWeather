@@ -13,7 +13,7 @@ class Weather():
 
     def cur_temp(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
-        return f"{json_convert(url)['main']} Degrees Celsius"   
+        return f"{json_convert(url)['main']['temp']} Degrees Celsius"   
 
     def max_temp(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
@@ -34,23 +34,55 @@ class Weather():
 
 def json_convert(url: str) -> str:
     response = requests.request("GET", url)
-    response_loaded = json.loads(response.text)
+    response_loaded: str = json.loads(response.text)
     return response_loaded
+
+def weather_choices(usr_input: str, city_choice: str) -> str:
+    if usr_input == '1':
+        print("\n\n"+location[city_choice].cur_temp())
+    if usr_input == '2':
+        print("\n\n"+location[city_choice].max_temp())
+    if usr_input == '3':
+        print("\n\n"+location[city_choice].min_temp())
+    if usr_input == '4':
+        print("\n\n"+location[city_choice].feels_like())
+    if usr_input == '5':
+        print("\n\n"+location[city_choice].humidity())
+    
 
 melbourne = Weather('melbourne')
 sydney = Weather('sydney')
-queensland = Weather('queensland')
+brisbane = Weather('brisbane')
 adelaide = Weather('adelaide')
 perth = Weather('perth')
 darwin = Weather('darwin')
 hobart = Weather('hobart')
-canberra = Weather('canberra')
-ginifer = Weather('ginifer')
+
+location: dict = {'melbourne': melbourne, 'sydney': sydney, 'brisbane': brisbane, 'adelaide':adelaide, 'perth':perth, 'darwin':darwin, 'hobart':hobart}
 
 print("Welcome to Australian Weather CLI!!")
 
-city: str = input("Which city are you located in Australia?")
+while True:
+    print("Enter a number corresponding to the list below:")
+    usr_choice: str = input("1. Predefinied locations:\n2. Enter custom location\n")
 
-location.append(city)
+    if usr_choice != '1' and usr_choice != '2':
+        print("Please enter appropriate options (1 or 2)")
+    elif usr_choice == '1':
+        while True:
+            print("\n\nWhich city would you like to know about?")
+            city: str = input("Melbourne\nSydney\nBrisbane\nAdelaide\nPerth\nDarwin\nHobart\n")
+
+            if city in location:
+                while True:
+                    print("\n\nWhat would you like to find out:")
+                    weather_options: str = input("1. Current temperature\n2. Max temperature\n3. Min temperature\n4. Feels like temperature\n5. Humidity\n")
+                    if weather_options in ['1','2','3','4','5']:
+                        weather_choices(weather_options, city)
+                    else:
+                        print("Please choose the appropraite option")
+            elif city not in location:
+                print("Please enter appropriate city")
+
 
 print(melbourne.cur_temp())
