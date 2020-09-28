@@ -45,8 +45,7 @@ perth = Weather('perth')
 darwin = Weather('darwin')
 hobart = Weather('hobart')
 canberra = Weather('canberra')
-
-location: List[str] = []
+ginifer = Weather('ginifer')
 
 print("Welcome to Australian Weather CLI!!")
 
@@ -54,4 +53,4 @@ city: str = input("Which city are you located in Australia?")
 
 location.append(city)
 
-print(canberra.cur_temp())
+print(melbourne.cur_temp())
