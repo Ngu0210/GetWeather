@@ -2,7 +2,6 @@ import json
 import requests
 
 class Weather():
-    
 
     def __init__(self, location: str, state_code: str='au') -> None:
         self.location = location
