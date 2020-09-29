@@ -29,7 +29,7 @@ class Weather():
 
     def humidity(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
-        return f"{json_convert(url)['main']['humidity']} Degrees Celcius"
+        return f"Humidity: {json_convert(url)['main']['humidity']}%"
 
 
 def json_convert(url: str) -> str:
@@ -37,17 +37,18 @@ def json_convert(url: str) -> str:
     response_loaded: str = json.loads(response.text)
     return response_loaded
 
-def weather_choices(usr_input: str, city_choice: str) -> str:
+def weather_choices(usr_input: str, city_choice: str) -> None:
+    city_choice = city_choice.lower()
     if usr_input == '1':
         print("\n\n"+location[city_choice].cur_temp())
-    if usr_input == '2':
+    elif usr_input == '2':
         print("\n\n"+location[city_choice].max_temp())
-    if usr_input == '3':
+    elif usr_input == '3':
         print("\n\n"+location[city_choice].min_temp())
-    if usr_input == '4':
+    elif usr_input == '4':
         print("\n\n"+location[city_choice].feels_like())
-    if usr_input == '5':
-        print("\n\n"+location[city_choice].humidity())
+    elif usr_input == '5':
+        print("\n\n"+location[city_choice].humidity())  
     
 
 melbourne = Weather('melbourne')
@@ -73,7 +74,7 @@ while True:
             print("\n\nWhich city would you like to know about?")
             city: str = input("Melbourne\nSydney\nBrisbane\nAdelaide\nPerth\nDarwin\nHobart\n")
 
-            if city in location:
+            if city.lower() in location:
                 while True:
                     print("\n\nWhat would you like to find out:")
                     weather_options: str = input("1. Current temperature\n2. Max temperature\n3. Min temperature\n4. Feels like temperature\n5. Humidity\n")
