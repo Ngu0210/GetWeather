@@ -1,6 +1,6 @@
-from weather import Weather
+from Weather import Weather
 from typing import List, Dict, Union
-from functions import location, weather_choices, check_exists, custom_weather_choices
+from Functions import location, weather_choices, check_exists, custom_weather_choices
 
 print("Welcome to Australian Weather CLI!!")
 

@@ -1,5 +1,5 @@
 from typing import Optional
-from weather import melbourne, sydney, brisbane, adelaide, perth, darwin, hobart
+from Weather import melbourne, sydney, brisbane, adelaide, perth, darwin, hobart
 
 location: dict = {'melbourne': melbourne, 'sydney': sydney, 'brisbane': brisbane, 'adelaide':adelaide, 'perth':perth, 'darwin':darwin, 'hobart':hobart}
 

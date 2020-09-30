@@ -1,8 +1,8 @@
 import unittest
 import json
 import requests
-from functions import weather_choices, check_exists, custom_weather_choices
-from weather import json_convert, Weather
+from Functions import weather_choices, check_exists, custom_weather_choices
+from Weather import json_convert, Weather
 
 url: str = f"http://api.openweathermap.org/data/2.5/weather?q=melbourne,au&units=metric&appid=b2cf60917edb97ded95da68172607141"
 response = requests.request("GET", url)
