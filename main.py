@@ -1,3 +1,4 @@
+from weather import Weather
 from typing import List, Dict, Union
 from functions import location, weather_choices
 
@@ -18,7 +19,10 @@ while True & exit:
                     print("\n\nWhat would you like to find out:")
                     weather_options: str = input("1. Current temperature\n2. Max temperature\n3. Min temperature\n4. Feels like temperature\n5. Humidity\nEnter 'back' if you want to go back\n\n")
                     if weather_options in ['1','2','3','4','5']:
-                        print("\n\n"+weather_choices(weather_options, city))
+                        try:
+                            print("\n\n"+weather_choices(weather_options, city))
+                        except:
+                            pass
                     elif weather_options.lower() == 'back' or weather_options.lower() == 'b':
                         break
                     elif weather_options.lower() == 'exit' or weather_options.lower() == 'e':
@@ -32,7 +36,10 @@ while True & exit:
             elif city not in location:
                 print("\n\nPlease enter appropriate city")
     elif usr_choice == '2':
-        pass
+        custom_state = input("\n\nPlease enter the state you wish to find out. (au) 'without brackets'\n")
+        custom_city = input("\n\nPlease enter the city. (melbourne)\n")
+        custom_location = Weather(custom_state, custom_city)
+
     elif usr_choice.lower() == 'exit' or usr_choice.lower() == 'e':
         exit = False
     else:
