@@ -1,8 +1,8 @@
 import unittest
 import json
 import requests
-from functions import weather_choices
-from weather import json_convert
+from functions import weather_choices, check_exists
+from weather import json_convert, Weather
 
 url: str = f"http://api.openweathermap.org/data/2.5/weather?q=melbourne,au&units=metric&appid=b2cf60917edb97ded95da68172607141"
 response = requests.request("GET", url)
@@ -12,6 +12,7 @@ max_temp = f"Maximum Temperature: {response_loaded['main']['temp_max']} Degrees 
 min_temp = f"Minimum Temperature: {response_loaded['main']['temp_min']} Degrees Celsius"
 feels_like = f"Feels Like: {response_loaded['main']['feels_like']} Degrees Celsius"
 humidity = f"Humidity: {response_loaded['main']['humidity']}%"
+test_weather = Weather('melbourne')
 
 
 class testFunctions(unittest.TestCase):
@@ -32,5 +33,9 @@ class testFunctions(unittest.TestCase):
         self.assertEqual(result, humidity, msg=f"Results: {result}, Expected: {humidity}")
 
     def test_json_convert(self):
-        results = json_convert(url)
-        self.assertEqual(results, response_loaded, msg=f"Results: {results}, Expected: {response_loaded}")
+        result = json_convert(url)
+        self.assertEqual(result, response_loaded, msg=f"Results: {result}, Expected: {response_loaded}")
+
+    def test_check_exists(self):
+        result = check_exists(test_weather)
+        self.assertEqual(result, None, msg=f"Results: {result}, Expected: {None}")

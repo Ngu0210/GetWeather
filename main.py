@@ -55,7 +55,7 @@ while True & exit:
 
             if not check_exists(custom_location):
                 while True & exit:
-                    weather_options: str = input("\n1. Current temperature\n2. Max temperature\n3. Min temperature\n4. Feels like temperature\n5. Humidity\nEnter 'back' if you want to go back\n")
+                    weather_options = input("\n1. Current temperature\n2. Max temperature\n3. Min temperature\n4. Feels like temperature\n5. Humidity\nEnter 'back' if you want to go back\n")
                     if weather_options in ['1','2','3','4','5']:
                         try:
                             print("\n\n"+custom_weather_choices(weather_options,custom_location))

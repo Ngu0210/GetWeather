@@ -41,6 +41,5 @@ def custom_weather_choices(usr_input, custom_location):
 def check_exists(custom_location):
     try:
         custom_location.main()
-        return ""
     except:
         return True
