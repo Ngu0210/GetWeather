@@ -21,8 +21,26 @@ def weather_choices(usr_input: str, city_choice: str):
     except:
         print("\n\nConnection dropped, try again!")
 
+def custom_weather_choices(usr_input, custom_location):
+    try:
+        if usr_input == '1':
+            return custom_location.cur_temp()
+        elif usr_input == '2':
+            return custom_location.max_temp()
+        elif usr_input == '3':
+            return custom_location.min_temp()
+        elif usr_input == '4':
+            return custom_location.feels_like()
+        elif usr_input == '5':
+            return custom_location.humidity()
+        else:
+            return None
+    except:
+        print("\n\nConnection dropped, try again!")
+
 def check_exists(custom_location):
     try:
         custom_location.main()
+        return ""
     except:
-        return "\n\nLocation does not exist, Connection drop or does not exist in database yet."
+        return True
