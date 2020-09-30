@@ -7,6 +7,10 @@ class Weather():
         self.location = location
         self.state_code = state_code
 
+    def main(self):
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
+        return json_convert(url)['main']
+
     def cur_temp(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
         return f"Current Temperature: {json_convert(url)['main']['temp']} Degrees Celsius"   

@@ -1,6 +1,6 @@
 from weather import Weather
 from typing import List, Dict, Union
-from functions import location, weather_choices
+from functions import location, weather_choices, check_exists
 
 print("Welcome to Australian Weather CLI!!")
 
@@ -39,6 +39,7 @@ while True & exit:
         custom_state = input("\n\nPlease enter the state you wish to find out. (au) 'without brackets'\n")
         custom_city = input("\n\nPlease enter the city. (melbourne)\n")
         custom_location = Weather(custom_state, custom_city)
+        print(check_exists(custom_location))
 
     elif usr_choice.lower() == 'exit' or usr_choice.lower() == 'e':
         exit = False
