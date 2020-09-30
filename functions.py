@@ -4,6 +4,10 @@ from weather import melbourne, sydney, brisbane, adelaide, perth, darwin, hobart
 location: dict = {'melbourne': melbourne, 'sydney': sydney, 'brisbane': brisbane, 'adelaide':adelaide, 'perth':perth, 'darwin':darwin, 'hobart':hobart}
 
 def weather_choices(usr_input: str, city_choice: str):
+    '''
+    This function will take the users input and depending on the input (1,2,3,4,5). The user will be return either current temp, maximum temp, minimum temp,
+    feels like temp and humidity
+    '''
     try:
         city_choice = city_choice.lower()
         if usr_input == '1':
