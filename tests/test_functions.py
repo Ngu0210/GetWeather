@@ -7,10 +7,10 @@ from Weather import json_convert, Weather
 url: str = f"http://api.openweathermap.org/data/2.5/weather?q=melbourne,au&units=metric&appid=b2cf60917edb97ded95da68172607141"
 response = requests.request("GET", url)
 response_loaded = json.loads(response.text)
-cur_temp = f"Current Temperature: {response_loaded['main']['temp']} Degrees Celsius"
-max_temp = f"Maximum Temperature: {response_loaded['main']['temp_max']} Degrees Celsius"
-min_temp = f"Minimum Temperature: {response_loaded['main']['temp_min']} Degrees Celsius"
-feels_like = f"Feels Like: {response_loaded['main']['feels_like']} Degrees Celsius"
+cur_temp = f"Current Temperature: {int(response_loaded['main']['temp'])} Degrees Celsius"
+max_temp = f"Maximum Temperature: {int(response_loaded['main']['temp_max'])} Degrees Celsius"
+min_temp = f"Minimum Temperature: {int(response_loaded['main']['temp_min'])} Degrees Celsius"
+feels_like = f"Feels Like: {int(response_loaded['main']['feels_like'])} Degrees Celsius"
 humidity = f"Humidity: {response_loaded['main']['humidity']}%"
 test_weather = Weather('melbourne')
 

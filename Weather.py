@@ -13,19 +13,19 @@ class Weather():
 
     def cur_temp(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
-        return f"Current Temperature: {json_convert(url)['main']['temp']} Degrees Celsius"   
+        return f"Current Temperature: {int(json_convert(url)['main']['temp'])} Degrees Celsius"   
 
     def max_temp(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
-        return f"Maximum Temperature: {json_convert(url)['main']['temp_max']} Degrees Celsius"
+        return f"Maximum Temperature: {int(json_convert(url)['main']['temp_max'])} Degrees Celsius"
 
     def min_temp(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
-        return f"Minimum Temperature: {json_convert(url)['main']['temp_min']} Degrees Celsius"
+        return f"Minimum Temperature: {int(json_convert(url)['main']['temp_min'])} Degrees Celsius"
     
     def feels_like(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
-        return f"Feels Like: {json_convert(url)['main']['feels_like']} Degrees Celsius"
+        return f"Feels Like: {int(json_convert(url)['main']['feels_like'])} Degrees Celsius"
 
     def humidity(self):
         url = f"http://api.openweathermap.org/data/2.5/weather?q={self.location},{self.state_code}&units=metric&appid=b2cf60917edb97ded95da68172607141"
