@@ -41,12 +41,12 @@ while True & exit:
     #Custom Location Code            
     elif usr_choice == '2':
         while True & exit:
-            custom_state: str = input("\n\nPlease enter the state you wish to find out. (au) 'without brackets'\n")
+            custom_state: str = input("\n\nPlease enter the state you wish to find out. (au) 'without brackets'\n\n")
             if custom_state == 'exit' or custom_state == 'e':
                 exit = False
                 continue
 
-            custom_city: str = input("\n\nPlease enter the city. (New York)\n")
+            custom_city: str = input("\nPlease enter the city. (New York)\n\n")
             if custom_city == 'exit' or custom_city == 'e':
                 exit = False
                 continue
@@ -55,7 +55,7 @@ while True & exit:
 
             if not check_exists(custom_location):
                 while True & exit:
-                    weather_options = input("\n1. Current temperature\n2. Max temperature\n3. Min temperature\n4. Feels like temperature\n5. Humidity\nEnter 'back' if you want to go back\n")
+                    weather_options = input("\n1. Current temperature\n2. Max temperature\n3. Min temperature\n4. Feels like temperature\n5. Humidity\nEnter 'back' if you want to go back\n\n")
                     if weather_options in ['1','2','3','4','5']:
                         try:
                             print("\n\n"+custom_weather_choices(weather_options,custom_location))
@@ -74,4 +74,4 @@ while True & exit:
         exit = False
     else:
         print("\n\nPlease enter the apropraite value (1, 2, exit)")
-            
+        
