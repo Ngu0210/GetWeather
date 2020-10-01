@@ -1,5 +1,4 @@
 from Weather import Weather
-from typing import List, Dict, Union
 from Functions import location, weather_choices, check_exists, custom_weather_choices
 
 print("Welcome to Australian Weather CLI!!")
@@ -41,7 +40,7 @@ while True & exit:
     #Custom Location Code            
     elif usr_choice == '2':
         while True & exit:
-            custom_state: str = input("\n\nPlease enter the state you wish to find out. (au) 'without brackets'\n\n")
+            custom_state: str = input("\n\nPlease enter the state you wish to find out. (us) 'without brackets'\n\n")
             if custom_state == 'exit' or custom_state == 'e':
                 exit = False
                 continue
