@@ -32,6 +32,7 @@ class Weather():
         return f"Humidity: {json_convert(url)['main']['humidity']}%"
 
 def json_convert(url: str) -> str:
+    ''' Converts json data into python readable data '''
     response = requests.request("GET", url)
     response_loaded: str = json.loads(response.text)
     return response_loaded

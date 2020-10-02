@@ -47,6 +47,7 @@ def custom_weather_choices(usr_input, custom_location):
         print("\n\nConnection dropped, try again!")
 
 def check_exists(custom_location):
+    'Checks the inputted location exists in database'
     try:
         custom_location.main()
     except:
