@@ -37,7 +37,7 @@ while True & exit:
             elif city not in location:
                 print("\n\nPlease enter appropriate city")
 
-    #Custom Location Code            
+    #Custom Location Code
     elif usr_choice == '2':
         while True & exit:
             custom_state: str = input("\n\nPlease enter the state you wish to find out. (us) 'without brackets'\n\n")
