@@ -32,10 +32,6 @@ class testFunctions(unittest.TestCase):
         result = weather_choices('5', 'melbourne')
         self.assertEqual(result, humidity, msg=f"Results: {result}, Expected: {humidity}")
 
-    def test_json_convert(self):
-        result = json_convert(url)
-        self.assertEqual(result['main'], response_loaded['main'], msg=f"Results: {result['main']}, Expected: {response_loaded['main']}")
-
     def test_check_exists(self):
         result = check_exists(test_weather)
         self.assertEqual(result, None, msg=f"Results: {result}, Expected: {None}")
