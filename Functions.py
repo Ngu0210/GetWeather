@@ -26,6 +26,10 @@ def weather_choices(usr_input: str, city_choice: str):
         print("\n\nConnection dropped, try again!")
 
 def custom_weather_choices(usr_input, custom_location):
+    '''
+    This function will take the users input of a custom location and depending on the input (1,2,3,4,5). The user will be return either current temp, maximum temp, minimum temp,
+    feels like temp and humidity
+    '''
     try:
         if usr_input == '1':
             return custom_location.cur_temp()
