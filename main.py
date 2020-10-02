@@ -3,7 +3,7 @@ from Functions import location, weather_choices, check_exists, custom_weather_ch
 
 print("Welcome to Australian Weather CLI!!")
 
-exit: bool = True
+exit: bool = True #Escape variable if user wants to exit the application
 
 while True & exit:
     print("\n\nEnter a number corresponding to the list below:")
