@@ -37,6 +37,8 @@ def json_convert(url: str) -> str:
     response_loaded: str = json.loads(response.text)
     return response_loaded
 
+
+# Pre defined location instances
 melbourne = Weather('melbourne')
 sydney = Weather('sydney')
 brisbane = Weather('brisbane')
