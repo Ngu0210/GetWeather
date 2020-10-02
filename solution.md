@@ -15,3 +15,16 @@ The whole coding format will be split into 3 files, *main*, *functions*, *weathe
 
 Another folder *test* will be created for the program which will test most functions of the program.
 
+## Flow Chart Diagram
+
+![Flow Chart Diagram](Images/flow_chart_diagram.png)
+
+## Requirements Dependecies
+
+- python 3.8.*
+- json
+- typing
+- mypy==0.782
+- mypy-extensions==0.4.3
+- pylint==2.6.0
+- requests==2.24.0
