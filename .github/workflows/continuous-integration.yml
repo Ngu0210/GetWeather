@@ -23,20 +23,20 @@ jobs:
       - name:
         run: |
           python -m unittest discover tests/
-deployment:
-  needs: test_suite
-  runs-on: ubuntu-latest
-  steps:
-    - name: Fresh clone & repo install
-      uses: appleboy/ssh-action@master
-      with:
-        host: 3.215.119.133
-        username: github-actions
-        key: ${{ secrets.SSH_KEY }}
-        port: 22
-        script: |
-          rm -rf WeatherAPI
-          git clone https://github.com/Ngu0210/WeatherAPI.git
-          python3.8 -m venv /home/github-actions/WeatherAPI/venv/
-          source /home/github-actions/WeatherAPI/venv/bin/activate
-          pip install -r /home/github-actions/WeatherAPI/requirements.txt
+  deployment:
+    needs: test_suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fresh clone & repo install
+        uses: appleboy/ssh-action@master
+        with:
+          host: 3.215.119.133
+          username: github-actions
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            rm -rf WeatherAPI
+            git clone https://github.com/Ngu0210/WeatherAPI.git
+            python3.8 -m venv /home/github-actions/WeatherAPI/venv/
+            source /home/github-actions/WeatherAPI/venv/bin/activate
+            pip install -r /home/github-actions/WeatherAPI/requirements.txt
